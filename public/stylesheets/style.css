@@ -9,7 +9,7 @@ a{
 }
 
 .box {
-  
+  box-sizing: border-box;
   font-weight: bold;
   color: #6091d3;/*文字色*/
   background: #FFF;
@@ -28,18 +28,24 @@ a{
   font-weight: bold;
 }
 .table{
+  box-sizing: border-box;
   border: solid 3px #6091d3;/*線*/
+  
   font-weight: bold;
+
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
 }
 .table th {
   color: #6091d3;;/*文字色*/
-  font-size: 15px;
+
 }
 
 .table td {
   color: #699ada;/*文字色*/
-  margin: 200; 
-  padding: 200;
+  
 }
 
 
