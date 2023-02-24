@@ -6,7 +6,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const helmet = require('helmet');
 const connection  = require('./lib/database');
-
+const index=require('./router/index');
 const usersRouter = require('./routes/users');
 const record = require('./routes/record');
 const track = require('./routes/track');
@@ -38,8 +38,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.use('/', usersRouter); 
+app.use('/', index); 
+app.use('/users', usersRouter); 
 app.use('/record', record); 
 app.use('/record/track', track); 
 app.use('/select', select); 

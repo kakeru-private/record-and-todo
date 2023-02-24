@@ -26,16 +26,16 @@ router.use((req, res, next) => {
   }
   next();
 });
-systemLogger.info(" start");
+systemLogger.info("users start");
 
-/* GET  listing. */
+/* GET users listing. */
 router.get('/', (req, res, next) =>{
     var data ={
         title:'signin',
         content:'',
         form:{name:'',password:''}
     };
-    res.render('/signin',data);
+    res.render('users/signin',data);
 });
 
 router.get('/signin', (req, res, next) => {
@@ -44,7 +44,7 @@ router.get('/signin', (req, res, next) => {
         content:'',
         form:{name:'',password:''}
     };
-    res.render('/signin',data);
+    res.render('users/signin',data);
 });
 
 router.post('/signin',
@@ -67,7 +67,7 @@ router.post('/signin',
             content:result,
             form:{name:'',password:''}
         }
-        res.render('/signin',data);
+        res.render('users/signin',data);
     }else{
         const nm =req.body.name;
         const ps = req.body.password;
@@ -85,7 +85,7 @@ router.post('/signin',
                     content:result,
                     form:{name:'',password:''}
                 };
-                res.render('/signin',data);
+                res.render('users/signin',data);
             }
             else 
             { // if user found
@@ -102,7 +102,7 @@ router.post('/signin',
                         content:result,
                         form:{name:'',password:''}
                     };
-                    res.render('/signin',data);
+                    res.render('users/signin',data);
                 }
                 
                 
@@ -123,7 +123,7 @@ router.get('/signup', (req, res, next) => {
         content:'',
         form:{name:'',mail:'',password:'',repassword:''}
     };
-    res.render('/signup',data);
+    res.render('users/signup',data);
 });
 
 
@@ -155,7 +155,7 @@ router.post('/signup',
             content:result,
             form:{name:'',mail:'',password:'',repassword:''}
         }
-        res.render('/signup',data);
+        res.render('users/signup',data);
     }else{
         
         const hps = await bcrypt.hash(req.body.password,15);
@@ -182,7 +182,7 @@ router.post('/signup',
                         content:result,
                         form:{name:'',mail:'',password:'',repassword:''}
                     };
-                    res.render('/signup',data);
+                    res.render('users/signup',data);
                 }
                 else if(ps == nm){
                     result += '<li>user nameとpasswordは違うものを設定してください</li></ul>';
@@ -192,7 +192,7 @@ router.post('/signup',
                         content:result,
                         form:{name:'',mail:'',password:'',repassword:''}
                     };
-                    res.render('/signup',data);
+                    res.render('users/signup',data);
                 }else{ // if user found
                     connection.query('insert into User (user_name,password,regist_date,mail) values ( ? , ? , CURDATE() , ? );',[nm,hps,hml]);
                     
@@ -201,7 +201,7 @@ router.post('/signup',
                         content:'登録が完了しました',
                         form:{name:'',mail:'',password:'',repassword:''}
                     };
-                    res.render('/signup',data);
+                    res.render('users/signup',data);
                     
                 }  
             }else{
@@ -211,7 +211,7 @@ router.post('/signup',
                     content:result,
                     form:{name:'',mail:'',password:'',repassword:''}
                 };
-                res.render('/signup',data);
+                res.render('users/signup',data);
             }
 
                       
@@ -228,7 +228,7 @@ router.get('/changepass', (req, res, next) => {
         content:'',
         form:{name:'',mail:'',password:'',repassword:''}
     };
-    res.render('/changepass',data);
+    res.render('users/changepass',data);
 });
 
 router.post('/changepass',
@@ -261,7 +261,7 @@ router.post('/changepass',
             content:result,
             form:{name:'',mail:'',password:'',repassword:''}
         }
-        res.render('/changepass',data);
+        res.render('users/changepass',data);
     }else{
         const hps = await bcrypt.hash(ps,15);
         const hml = await bcrypt.hash(mail,10);
@@ -287,7 +287,7 @@ router.post('/changepass',
                             content:result,
                             form:{name:'',mail:'',password:'',repassword:''}
                         };
-                        res.render('/changepass',data);
+                        res.render('users/changepass',data);
                     }
                     else if(ps == nm){
                         result += '<li>user nameとpasswordは違うものを設定してください</li></ul>';
@@ -297,7 +297,7 @@ router.post('/changepass',
                             content:result,
                             form:{name:'',mail:'',password:'',repassword:''}
                         };
-                        res.render('/changepass',data);
+                        res.render('users/changepass',data);
                     }else{ // if user found
                         const compared = await bcrypt.compare(mail,rows[0][0].mail);
                         if(compared){
@@ -308,7 +308,7 @@ router.post('/changepass',
                                 content:'変更できました',
                                 form:{name:'',mail:'',password:'',repassword:''}
                             };
-                            res.render('/changepass',data);
+                            res.render('users/changepass',data);
                         }else{
                             result += '<li>user nameかmailかpasswordが一致しません</li></ul>';
                             var data ={
@@ -316,7 +316,7 @@ router.post('/changepass',
                                 content:result,
                                 form:{name:'',mail:'',password:'',repassword:''}
                             };
-                            res.render('/changepass',data);
+                            res.render('users/changepass',data);
                         }
                         
         
@@ -328,7 +328,7 @@ router.post('/changepass',
                         content:result,
                         form:{name:'',mail:'',password:'',repassword:''}
                     };
-                    res.render('/changepass',data);
+                    res.render('users/changepass',data);
                 }
             }else{
                 result += '<li>user nameかmailが存在しません</li></ul>';
@@ -337,7 +337,7 @@ router.post('/changepass',
                         content:result,
                         form:{name:'',mail:'',password:'',repassword:''}
                     };
-                    res.render('/changepass',data);
+                    res.render('users/changepass',data);
             }
             
 
@@ -351,7 +351,7 @@ router.post('/changepass',
 
 router.get('/signout', (req, res, next) => {
     if(req.session.uid == undefined){
-        res.redirect('//signin');
+        res.redirect('/users/signin');
     }else{
         req.session.destroy();
         console.log(req.session);
@@ -360,21 +360,21 @@ router.get('/signout', (req, res, next) => {
             content:'',
             form:{name:'',password:'',repassword:''}
         };
-        res.render('/signin',data);
+        res.render('users/signin',data);
     }
     
 });
 
 router.get('/delete',(req,res,next)=>{
     if(req.session.uid == undefined){
-        res.redirect('//signin');
+        res.redirect('/users/signin');
     }else{
         var data ={
             title:'delete my account',
             content:'',
             form:{name:'',mail:'',password:''}
         };
-        res.render('/delete',data);
+        res.render('users/delete',data);
     }
     
 });
@@ -386,7 +386,7 @@ router.post('/delete',
         check('password','password は必ず入力してください').notEmpty().escape(),
     ],async (req,res,next)=>{
     if(req.session.uid == undefined){
-        res.redirect('//signin');
+        res.redirect('/users/signin');
     }else{
         const errors = validationResult(req);
     
@@ -403,7 +403,7 @@ router.post('/delete',
                 content:result,
                 form:{name:'',mail:'',password:''}
             }
-            res.render('/delete',data);
+            res.render('users/delete',data);
         }else{
             const nm =req.body.name;
             const ps = req.body.password;
@@ -420,7 +420,7 @@ router.post('/delete',
                         content:result,
                         form:{name:'',mail:'',password:''}
                     };
-                    res.render('/delete',data);
+                    res.render('users/delete',data);
                 }
                 else 
                 { // if user found
@@ -437,7 +437,7 @@ router.post('/delete',
     
                         connection.query(q1+q2+q3+q4+q5+q6,[uid,uid,uid,uid,uid,uid]);
                             
-                        res.redirect('../signup');
+                        res.redirect('../users/signup');
                         
                         
                     }else{
@@ -447,7 +447,7 @@ router.post('/delete',
                             content:result,
                             form:{name:'',mail:'',password:''}
                         };
-                        res.render('/delete',data);
+                        res.render('users/delete',data);
                     }
                     
                     
