@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const connection  = require('../lib/database');
 
-const log4js = require('log4js');
+/*const log4js = require('log4js');
 log4js.configure('./src/config/log4js.config.json');
 const systemLogger = log4js.getLogger('system'); 
 const httpLogger = log4js.getLogger('http'); 
@@ -22,7 +22,7 @@ router.use((req, res, next) => {
   }
   next();
 });
-systemLogger.info("select start");
+systemLogger.info("select start");*/
 
 
 
