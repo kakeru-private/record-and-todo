@@ -1,0 +1,26 @@
+{
+  "name": "recordapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev":"npm start"
+  },
+  "dependencies": {
+    "alert": "^5.1.4",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "ejs": "~2.6.1",
+    "env-cmd": "^10.1.0",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.3",
+    "helmet": "^6.0.1",
+    "http-errors": "~1.6.3",
+    "log4js": "^6.7.1",
+    "morgan": "~1.9.1",
+    "mysql2": "^3.1.2"
+  }
+}

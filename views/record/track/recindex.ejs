@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv=""content-type" content = "text/html; charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorign="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body class="container">
+    
+
+    <div role ="main" class="box">
+        <div class="flex">
+            <div class="left">
+                <header>
+                    <h1 class="display-4"><b><%= title %></b></h1>
+                    
+                </header>
+            </div>
+
+            <div class="center">
+                <form  method="get"  action="../../../select">
+                
+                    <input type="submit" value="slect services" class="btn btn-primary">
+                </form>
+            </div>
+
+            <div class="right">
+                <form  method="get"  action="../../../users/signout">
+                    <input type="submit" value="signout" class="btn btn-primary">
+                </form>
+            </div>
+            
+        </div>
+        <p>全<%= len%>件  <%=content[1][0].title%>のtrack</p>
+        <table class="table">
+            <tr>
+                <th>レコード名</th>
+                <th>タイトル</th>
+                <th>アーティスト</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            <% for(var i in content[0]) { %>
+                
+            <tr>
+                <% var obj = content[0][i]; %>
+                <td><%= obj.title %></a> </td>
+                <td><%= obj.tTitle %></a> </td>
+                <td><%= obj.artist %></td>
+                <td><u><a href="track/edit?trackid=<%= obj.track_id %>&rec_id=<%= obj.fk_rid %>" >edit</a></u></td>
+                <td><u><a href="track/delete?trackid=<%= obj.track_id %>&rec_id=<%= obj.fk_rid %>">delete</a></u></td>
+            </tr>
+            
+            <% } %>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+                <td><u><a href="track/add?rec_id=<%= rec_id%>&rectitle=<%= content[1][0].title %>" >track add</a></u></td>
+            </tr>
+        </table>
+        <br>
+        
+        
+        <form  method="POST"  action="track/search">
+            <input type="hidden" name="rec_id" value="<%= rec_id %>" readonly>
+            <div class="form-group">
+                <label for="search"><B>search word</B></label>
+                <input type="text" name="search" id="search" class="form-control"  maxlength="255">
+            </div>
+            <input type="submit" value="search" class="btn btn-primary"value="<%= text %>">
+        </form>
+        <br>
+        
+        <form  method="GET"  action="/record">
+            
+            <input type="submit" value="record index" class="btn btn-primary">
+        </form>
+
+    </div>
+</body>
+</html>

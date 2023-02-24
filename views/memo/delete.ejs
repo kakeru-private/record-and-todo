@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body class="container">
+    
+
+    <div role="main" class="box">
+        <header>
+            <h1 class="display-4"><b><%= title %></b></h1>
+        </header>
+        <%- content %>
+        <form method="post" action="/memo/delete" >
+            
+            <input type="hidden" name="memo_id" value="<%= db.memo_id %>" readonly>
+            <div class="form-group">
+                <label for="memo">memo</label>
+                <input type="text" name="memo" id="memo" class="form-control" value="<%= db.memo %>" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="update_date">u更新日</label>
+                <input type="text" name="update_date" id="update_date" class="form-control" value="<%= db.update_date %>"  readonly>
+            </div>
+
+            <input type="submit" value="memo delete" class="btn btn-primary">
+        </form>
+
+            
+        <br>
+        <form  method="GET"  action="../memo">
+            
+            <input type="submit" value="memo index" class="btn btn-primary">
+        </form>
+        
+    </div>
+
+</body>
+</html>

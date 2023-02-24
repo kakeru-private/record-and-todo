@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv=""content-type" content = "text/html; charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorign="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body class="container">
+    
+
+    <div role ="main" class="box">
+        
+        <div class="flex">
+            <div class="left">
+                <header>
+                    <h1 class="display-4"><b><%= title %></b></h1>
+                    
+                </header>
+            </div>
+
+            <div class="center">
+                <form  method="get"  action="../select">
+                    
+                    <input type="submit" value="slect services" class="btn btn-primary">
+                </form>
+            </div>
+
+            <div class="right">
+                <form  method="get"  action="../users/signout">
+                    <input type="submit" value="signout" class="btn btn-primary">
+                </form>
+            </div>
+            
+        </div>
+    
+        
+        <p>全<%= len%>件</p>
+        <table class="table"  >
+            <tr>
+                
+                <th>ISBN</th>
+                <th>タイトル</th>
+                <th>著者</th>
+                <th>出版社</th>
+                <th>発売日</th>
+                <th>購入媒体・サイト</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            <% for(var i in content) { %>
+                
+            <tr>
+                <% var obj = content[i]; %>
+                
+                <td><%= obj.isbn %></td>
+                <td><%= obj.title %></td>
+                <td><%= obj.author %></td>
+                <td><%= obj.publisher %></td>
+                <td><%= obj.release_date %></td>
+                <td><%= obj.site %></td>
+                <td><u><a href="edit?book_id=<%= obj.book_id %>" >edit</a></u></td>
+                <td><u><a href="delete?book_id=<%= obj.book_id %>" >delete</a></u></td>
+            </tr>
+            
+            <% } %>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><u><a href="../book/add" >book add</a></u></td>
+                
+            </tr>
+        </table>
+        
+        <br>
+        <form  method="GET"  action="../book">
+            <input type="submit" value="book index" class="btn btn-primary">
+        </form>
+        <br>
+        
+        
+        
+    </div>
+</body>
+</html>

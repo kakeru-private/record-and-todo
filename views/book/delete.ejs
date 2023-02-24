@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body class="container">
+    
+
+    <div role="main" class="box">
+        <header>
+            <h1 class="display-4"><b><%= title %></b></h1>
+        </header>
+        <%- content %>
+        <form method="post" action="/book/delete">
+            <input type="hidden" name="book_id" value="<%= db.book_id %>" readonly >
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" name="isbn" id="isbn" class="form-control" value="<%= db.isbn %>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="title">タイトル</label>
+                <input type="text" name="title" id="title" class="form-control" value="<%= db.title %>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="author">著者</label>
+                <input type="text" name="author" id="author" class="form-control" value="<%= db.author %>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="publisher">出版社</label>
+                <input type="text" name="publisher" id="publisher" class="form-control" value="<%= db.publisher %>" readonly >
+            </div>
+            <div class="form-group">
+                <label for="release_date">発売日</label>
+                <input type="text" name="release_date" id="release_date" class="form-control" value="<%= db.release_date %>" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="site">購入媒体・サイト</label>
+                <input type="text" name="site" id="site" class="form-control" value="<%= db.site %>" readonly>
+            </div>
+
+            <input type="submit" value="book delete" class="btn btn-primary">
+        </form>
+        <br>
+        <form  method="GET"  action="../book">
+            <input type="submit" value="book index" class="btn btn-primary">
+        </form>
+        
+    </div>
+
+</body>
+</html>

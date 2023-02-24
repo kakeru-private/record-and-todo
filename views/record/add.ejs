@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body class="container">
+    
+
+    <div role="main" class="box">
+        <header>
+            <h1 class="display-4"><b><%= title %></b></h1>
+        </header>
+        <%- content %>
+        <form method="post" action="/record/add">
+            
+            <div class="form-group">
+                <label for="record_num">レコードナンバー</label>
+                <input type="text" name="record_num" id="record_num" class="form-control" value="<%= form.record_num %>" maxlength="255">
+            </div>
+            <div class="form-group">
+                <label for="title">タイトル</label>
+                <input type="text" name="title" id="title" class="form-control" value="<%= form.title %>"maxlength="255">
+            </div>
+            <div class="form-group">
+                <label for="artist">アーティスト</label>
+                <input type="text" name="artist" id="artist" class="form-control" value="<%= form.artist %>" maxlength="255">
+            </div>
+            <div class="form-group">
+                <label for="numOfTrack">トラック数</label>
+                <input type="number" name="numOfTrack" id="numOfTrack" class="form-control" value="<%= form.numOfTrack %>" min="1" >
+            </div>
+            <div class="form-group">
+                <label for="release_date">発売日</label>
+                <input type="date" name="release_date" id="release_date" class="form-control" value="<%= form.release_date %>" maxlength="10">
+            </div>
+
+            <div class="form-group">
+                <label for="site">購入媒体・サイト</label>
+                <input type="text" name="site" id="site" class="form-control" value="<%= form.site %>" maxlength="255">
+            </div>
+
+            <input type="submit" value="record add" class="btn btn-primary">
+        </form>
+        <br>
+        <form  method="GET"  action="../record">
+            
+            <input type="submit" value="record index" class="btn btn-primary">
+        </form>
+        
+    </div>
+
+</body>
+</html>

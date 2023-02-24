@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv=""content-type" content = "text/html; charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorign="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body class="container">
+    
+
+    <div role ="main" class="box">
+        <div class="flex">
+            <div class="left">
+                <header>
+                    <h1 class="display-4"><b><%= title %></b></h1>
+                    
+                </header>
+            </div>
+
+            <div class="center">
+                <form  method="get"  action="../../select">
+                
+                    <input type="submit" value="slect services" class="btn btn-primary">
+                </form>
+            </div>
+
+            <div class="right">
+                <form  method="get"  action="../../users/signout">
+                    <input type="submit" value="signout" class="btn btn-primary">
+                </form>
+            </div>
+            
+        </div>
+        <p>全<%= len%>件 検索ワード:<%=word%></p>
+        <table class="table">
+            <tr>
+                <th>レコード名</th>
+                <th>タイトル</th>
+                <th>アーティスト</th>
+                <th></th>
+                <th></th>
+            </tr>
+            
+            <% for(var i in content) { %>
+                
+            <tr>
+                <% var obj = content[i]; %>
+                
+                <td><%= obj.title %></td>
+                <td><%= obj.tTitle %></a></td>
+                <td><%= obj.artist %></td>
+                <td><u><a href="edit?trackid=<%= obj.track_id %>" >edit</a></u></td>
+                <td><u><a href="delete?trackid=<%= obj.track_id %>" >delete</a></u></td>
+            </tr>
+            <% } %>
+        </table>
+        
+        <br>
+        <form  method="GET"  action="../../record">
+            <input type="submit" value="record index" class="btn btn-primary">
+        </form>
+        
+    </div>
+</body>
+</html>

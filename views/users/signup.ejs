@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body class="container">
+      
+
+    <div role="main" class="box">
+        <header>
+            <h1 class="display-4"><b><%=title%></b></h1>
+        </header>  
+        <br>
+        <p><%- content %></p>
+        <form method="post" action="/users/signup">
+            <div class="form-group">
+                <label for="name">user name</label>
+                <input type="text" name="name" id="name" value="<%= form.name%>" class="form-control" maxlength="255">
+                <p>※user name は英大文字、英小文字、数字を含む8文字以上入力してください</p>
+            </div>
+
+            <div class="form-group">
+                <label for="name">mail</label>
+                <input type="text" name="mail" id="mail" value="<%= form.mail%>" class="form-control" maxlength="255">
+            </div>
+
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" value="<%= form.password%>" class="form-control" maxlength="255">
+                <p>※password は英大文字、英小文字、数字を含む8文字以上入力してください</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="repassword">Re-Enter password</label>
+                <input type="password" name="repassword" id="repassword" value="<%= form.repassword%>" class="form-control" maxlength="255">
+                <p>※Re-Enter password はpasswordを再度入力してください</p>
+            </div> 
+   
+            <input type="submit" value="signup" class="btn btn-primary">
+            
+        </form>
+        <br>
+        
+        <br>
+        <p>登録済みの方は<u><a href="/users/signin">こちら</a> </u></p>
+    </div>
+
+    
+        
+    
+</body>
+</html>

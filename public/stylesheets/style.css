@@ -1,0 +1,108 @@
+body {
+  padding: 50px;
+}
+
+a{
+  color: #86b3ec;/*文字色*/
+}
+
+.box {
+  padding: 0.5em 1em;
+  margin: 3em 0;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  background: #FFF;
+  
+ 
+}
+.box p {
+  margin: 0; 
+  padding: 0;
+}
+
+.box input {
+  color: #6091d3;/*文字色*/
+  border: solid 3px #6091d3;/*線*/
+  background: #FFF;
+  font-weight: bold;
+}
+.table{
+  border: solid 3px #6091d3;/*線*/
+  font-weight: bold;
+}
+.table th {
+  color: #6091d3;;/*文字色*/
+  font-size: 15px;
+}
+
+.table td {
+  color: #699ada;/*文字色*/
+  margin: 200; 
+  padding: 200;
+}
+
+
+
+.btn{
+  font-size: 20px;
+}
+
+
+.flex{
+  display: flex;
+  
+}
+
+
+.flex div{
+  box-sizing: border-box;
+  padding: 10px 10px;
+
+}
+
+
+.right{
+  width: 115px;
+
+}
+
+.center{
+  width: 250px;
+  
+}
+
+.left{
+  width: calc(100% - 200px);
+
+}
+
+.flex2{
+  display: flex;
+  
+}
+.flex2 div{
+  box-sizing: border-box;
+  padding: 10px 30px;
+  ;
+}
+
+
+.out{
+  width: 200px;
+  height: 100px;
+  font-size: 50px;
+}
+
+html{
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  position: relative;
+}
+
+.delete{
+  bottom: -20px;
+  right: 100px;
+
+  position:absolute;
+  border: solid
+}
