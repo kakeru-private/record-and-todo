@@ -95,7 +95,7 @@ router.post('/add',
             const subject = req.body.subject;
             const deadline = req.body.deadline;
             
-            connection.query('insert into todo (todo,subject,deadline,fk_uid) values ( ? , ? , ? , ? );',[todo,subject,deadline,uid]);
+            connection.query('insert into todo (todo,remarks,deadline,fk_uid) values ( ? , ? , ? , ? );',[todo,subject,deadline,uid]);
             var redi = '/todo?uid=' + uid;
             res.redirect('/todo');
         }
@@ -140,7 +140,7 @@ router.post('/edit',(req,res,next) =>{
         const deadline = req.body.deadline;
             
     
-        connection.query('update todo set todo = ?, subject = ?, deadline = ? where todo_id = ? and fk_uid = ? ;',[todo,subject,deadline,todo_id,uid]);
+        connection.query('update todo set todo = ?, remarks = ?, deadline = ? where todo_id = ? and fk_uid = ? ;',[todo,subject,deadline,todo_id,uid]);
         var redi = '/todo?uid=' + uid;
         res.redirect('/todo');
     }
@@ -195,7 +195,7 @@ router.post('/search',(req,res,next) =>{
         console.log(uid);
         console.log(word);
         if(word != ''){
-            connection.query('select * from todo where fk_uid = ? and (todo like ? or subject like ? or deadline like ? ) order by deadline;',[uid,'%'+word+'%','%'+word+'%','%'+word+'%'],(err,rows)=>{
+            connection.query('select * from todo where fk_uid = ? and (todo like ? or remarks like ? or deadline like ? ) order by deadline;',[uid,'%'+word+'%','%'+word+'%','%'+word+'%'],(err,rows)=>{
                 if(!err){
                     var data ={
                         title:'todo search',
