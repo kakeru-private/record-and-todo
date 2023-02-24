@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 30px;
   box-sizing: border-box;
   
 }
@@ -58,7 +58,7 @@ a{
 
 .flex div{
   box-sizing: border-box;
-  padding: 10px 10px;
+  padding: 10px 0px;
   border: solid 3px;
 }
 
@@ -98,7 +98,7 @@ a{
 }
 
 .l1{
-  width: 100%;
+  width: 70%;
   
 }
 
