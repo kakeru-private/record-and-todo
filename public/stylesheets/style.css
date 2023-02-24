@@ -66,14 +66,22 @@ a{
   width: 30%;
   
 }
-
-.center{
+.center {
   width: 40%;
   
+}
+.center input{
+  
+  text-align: center;
 }
 
 .left{
   width: 35%;
+
+}
+
+.left input{
+  text-align: center;
 
 }
 
