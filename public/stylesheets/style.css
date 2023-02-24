@@ -58,13 +58,13 @@ a{
 .flex div{
   box-sizing: border-box;
   padding: 10px 10px;
-  margin: 10 10px;
+
 }
 
 
 .right{
   width: 30%;
-
+  
 }
 
 .center{
@@ -89,13 +89,13 @@ a{
 }
 
 .l1{
-  width: 70%;
+  width: 100%;
   
 }
 
 .out{
   
-  width: 75%;
+  width: 100%;
   height: 100%;
   font-size: 100%;
 }
