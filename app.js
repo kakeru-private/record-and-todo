@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/users', usersRouter); 
+app.use('/', usersRouter); 
 app.use('/record', record); 
 app.use('/record/track', track); 
 app.use('/select', select); 
