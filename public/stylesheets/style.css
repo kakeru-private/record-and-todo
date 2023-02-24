@@ -1,5 +1,5 @@
 body {
-  padding: 30px;
+  padding: 50px;
   box-sizing: border-box;
   
 }
@@ -59,7 +59,6 @@ a{
 .flex div{
   box-sizing: border-box;
   padding: 10px 0px;
-  border: solid 3px;
 }
 
 
@@ -122,5 +121,4 @@ html{
   right: 3%;
 
   position:absolute;
-  border: solid
 }
