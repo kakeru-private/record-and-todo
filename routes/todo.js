@@ -57,7 +57,7 @@ router.get('/add',(req,res,next)=>{
         var data ={
             title:'todo add',
             content:'新しいtodoを入力:',
-            form:{todo:'',subject:'',deadline:''}
+            form:{todo:'',remarks:'',deadline:''}
         }
         res.render('todo/add',data);
     }
@@ -92,10 +92,10 @@ router.post('/add',
         }else{
             const uid = req.session.uid;
             const todo = req.body.todo;
-            const subject = req.body.subject;
+            const remarks = req.body.remarks;
             const deadline = req.body.deadline;
             
-            connection.query('insert into todo (todo,remarks,deadline,fk_uid) values ( ? , ? , ? , ? );',[todo,subject,deadline,uid]);
+            connection.query('insert into todo (todo,remarks,deadline,fk_uid) values ( ? , ? , ? , ? );',[todo,remarks,deadline,uid]);
             var redi = '/todo?uid=' + uid;
             res.redirect('/todo');
         }
@@ -136,11 +136,11 @@ router.post('/edit',(req,res,next) =>{
         const uid = req.session.uid;
         const todo_id = req.body.todo_id;
         const todo = req.body.todo;
-        const subject = req.body.subject;
+        const remarks = req.body.remarks;
         const deadline = req.body.deadline;
             
     
-        connection.query('update todo set todo = ?, remarks = ?, deadline = ? where todo_id = ? and fk_uid = ? ;',[todo,subject,deadline,todo_id,uid]);
+        connection.query('update todo set todo = ?, remarks = ?, deadline = ? where todo_id = ? and fk_uid = ? ;',[todo,remarks,deadline,todo_id,uid]);
         var redi = '/todo?uid=' + uid;
         res.redirect('/todo');
     }
