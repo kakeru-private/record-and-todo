@@ -39,3 +39,23 @@
   password: 'Shikinami1204'
 }
 [2023-02-24T10:48:42.839] [INFO] http - {}
+[2023-02-24T14:15:11.800] [INFO] http - {}
+[2023-02-24T14:15:23.839] [INFO] http - [Object: null prototype] {
+  name: 'Asuka1204',
+  password: 'Shikinami1204'
+}
+[2023-02-24T14:45:37.287] [INFO] http - {}
+[2023-02-24T14:45:38.661] [INFO] http - {}
+[2023-02-24T14:45:50.360] [INFO] http - [Object: null prototype] {
+  name: 'Asuka1204',
+  password: 'Shikinami1204'
+}
+[2023-02-24T15:11:33.367] [INFO] http - {}
+[2023-02-24T15:11:36.844] [INFO] http - {}
+[2023-02-24T15:11:42.966] [INFO] http - {}
+[2023-02-24T15:11:44.260] [INFO] http - {}
+[2023-02-24T15:21:56.955] [INFO] http - {}
+[2023-02-24T15:22:04.838] [INFO] http - [Object: null prototype] {
+  name: 'Asuka1204',
+  password: 'Shikinami1204'
+}
