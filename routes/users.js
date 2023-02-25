@@ -73,7 +73,7 @@ router.post('/signin',
         const ps = req.body.password;
         
         
-        connection.query('SELECT password,user_id FROM User WHERE user_name = ? ;', [nm], async function(err, rows, fields) {
+        connection.query('SELECT password,user_id FROM User WHERE user_name = ? ;', [nm], async (err, rows, next)=> {
             if(err) throw err;
             
            
@@ -163,7 +163,7 @@ router.post('/signup',
         const q1 = 'SELECT * FROM User WHERE user_name =  ? ;';
         const q2 = 'SELECT * FROM User WHERE password = ? ;';
         const q3 = 'SELECT * FROM User WHERE mail = ? ;';
-        connection.query(q1 + q2 + q3,[nm,hps,mail], (err, rows,)=> {
+        connection.query(q1 + q2 + q3,[nm,hps,mail], (err, rows)=> {
             if(err) throw err;
             var result = '<ul class="text-danger">';
             // if user not found
