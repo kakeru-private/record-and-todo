@@ -27,8 +27,7 @@ systemLogger.info("book start");*/
 
 router.get('/',(req,res,next) =>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         const uid = req.session.uid;
         console.log(uid);
@@ -49,8 +48,7 @@ router.get('/',(req,res,next) =>{
 
 router.get('/add',(req,res,next)=>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         const uid = req.session.uid;
         var data ={
@@ -73,8 +71,7 @@ router.post('/add',
     ],(req,res,next)=>{
     const errors = validationResult(req);
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         if(!errors.isEmpty()){
             var result = '<ul class="text-danger">';
@@ -107,8 +104,7 @@ router.post('/add',
 
 router.get('/edit',(req,res,next)=>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         const book_id = req.query.book_id;
         const uid = req.session.uid;
@@ -130,8 +126,7 @@ router.get('/edit',(req,res,next)=>{
 
 router.post('/edit',(req,res,next) =>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         console.log(req);
         const uid = req.session.uid;
@@ -153,8 +148,7 @@ router.post('/edit',(req,res,next) =>{
 
 router.get('/delete',(req,res,next)=>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         const book_id = req.query.book_id;
         const uid = req.session.uid;
@@ -175,8 +169,7 @@ router.get('/delete',(req,res,next)=>{
 
 router.post('/delete',(req,res,next) =>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         const uid = req.session.uid;
         const book_id = req.body.book_id;
@@ -189,8 +182,7 @@ router.post('/delete',(req,res,next) =>{
 
 router.post('/search',(req,res,next) =>{
     if(req.session.uid == undefined){
-        console.log(req.session);
-        res.redirect('users/signin');
+        res.redirect('/signin');
     }else{
         const uid = req.session.uid;
         const word = req.body.search;

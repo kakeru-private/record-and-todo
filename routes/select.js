@@ -28,9 +28,8 @@ systemLogger.info("select start");*/
 
 router.get('/', function(req, res, next) {
   if(req.session.uid == undefined){
-    console.log(req.session);
-    res.redirect('users/signin');
-}else{
+    res.redirect('/signin');
+  }else{
       console.log(req.session);
       const uid = req.session.uid;
         console.log(uid);

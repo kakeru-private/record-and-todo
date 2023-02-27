@@ -351,7 +351,7 @@ router.post('/changepass',
 
 router.get('/signout', (req, res, next) => {
     if(req.session.uid == undefined){
-        res.redirect('/users/signin');
+        res.redirect('/signin');
     }else{
         req.session.destroy();
         console.log(req.session);
@@ -367,7 +367,7 @@ router.get('/signout', (req, res, next) => {
 
 router.get('/delete',(req,res,next)=>{
     if(req.session.uid == undefined){
-        res.redirect('/users/signin');
+        res.redirect('/signin');
     }else{
         var data ={
             title:'delete my account',
@@ -386,7 +386,7 @@ router.post('/delete',
         check('password','password は必ず入力してください').notEmpty().escape(),
     ],async (req,res,next)=>{
     if(req.session.uid == undefined){
-        res.redirect('/users/signin');
+        res.redirect('/signin');
     }else{
         const errors = validationResult(req);
     
@@ -437,7 +437,7 @@ router.post('/delete',
     
                         connection.query(q1+q2+q3+q4+q5+q6,[uid,uid,uid,uid,uid,uid]);
                             
-                        res.redirect('../users/signup');
+                        res.redirect('/signup');
                         
                         
                     }else{
